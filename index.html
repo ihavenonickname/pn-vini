@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy PN</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <section>
+        <h1 class="title is-2 has-text-centered m-6">Easy PN</h1>
+        <p class="subtitle has-text-centered">Ferramenta para consultar o status de obsolescência de um part number</p>
+
+        <div class="columns">
+            <div class="column is-5 is-offset-1" id="col-esquerda">
+                <h1 class="title is-4 has-text-centered">Consultar</h1>
+
+                <p class="subtitle has-text-centered">
+                    Insira o Part Number abaixo e clique em Consultar
+                </p>
+
+                <fieldset id="fld-consulta">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input id="inp-part-number" class="input" type="text" placeholder="Part Number">
+                        </div>
+                        <div class="control">
+                            <a class="button is-primary" id="btn-consultar">
+                                <span class="icon"><i class="fas fa-search"></i></span>
+                                <span>Consultar</span>
+                            </a>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div id="div-aviso-consulta" class="notification is-warning is-light is-hidden">
+                    <strong>Aviso</strong>
+                    <p></p>
+                </div>
+
+                <div id="div-progresso" class="box is-hidden">
+                    <p class="has-text-centered">
+                        Pesquisando...
+                    </p>
+                    <progress class="progress is-small is-primary" max="100"></progress>
+                </div>
+
+                <div id="div-resultado-consulta" class="box is-hidden">
+                    <p class="has-text-centered">
+                        O PN informado encontra-se na situação <span class="tag"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="column is-5" id="col-direita">
+                <h1 class="title is-4 has-text-centered">Histórico</h1>
+
+                <p class="subtitle has-text-centered">
+                    Part Numbers pesquisados nesse computador
+                </p>
+
+                <div class="notification is-info is-light">
+                    <strong>Dica</strong>
+                    <p>
+                        Clique no PN para refazer a consulta
+                    </p>
+                </div>
+
+                <table id="tbl-historico" class="table is-centered">
+                    <thead>
+                        <tr>
+                            <th>PN</th>
+                            <th>Status</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th><a id="btn-refazer-consulta">123ABC</a></th>
+                            <th><span class="tag is-success">ativo</span></th>
+                            <th>04/10/2021 15:37</th>
+                        </tr>
+                        <tr>
+                            <th><a id="btn-refazer-consulta">123XYZ</a></th>
+                            <th><span class="tag is-warning">Em depreciação</span></th>
+                            <th>04/10/2021 15:36</th>
+                        </tr>
+                        <tr>
+                            <th><a id="btn-refazer-consulta">123456</a></th>
+                            <th><span class="tag is-danger">Obsoleto</span></th>
+                            <th>04/10/2021 15:35</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="./index.js"></script>
+
+</html>
